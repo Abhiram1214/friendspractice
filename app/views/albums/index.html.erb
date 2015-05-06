@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Albums</h1>
+
+<br>
+
+<% @albums.each do |all_albums| %>
+ <div><%=link_to all_albums.title, new_picture_path(:album_id=>all_albums.id) %><%= all_albums.id %></div>
+ 
+ <div><%= link_to 'All Pics', album_path(:id=>all_albums.id) %></div><br>
+<%end%>
+
+
+<%= link_to 'New Album', new_album_path %>

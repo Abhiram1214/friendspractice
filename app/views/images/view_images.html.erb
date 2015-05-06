@@ -1,0 +1,19 @@
+
+
+<script>
+  $('.hovering').hide();
+</script>
+
+
+
+<%= link_to "new image", new_image_path %>
+
+
+<% @view_pic.each do |pic| %>
+<%= image_tag pic.avatar(:medium) %><br>
+<div class="hovering">
+   <%= link_to "edit", edit_image_path(pic.id) %> |
+   <%= link_to "delete", image_path(pic.id), method: :'delete' %>
+
+   </div>
+<%end%>

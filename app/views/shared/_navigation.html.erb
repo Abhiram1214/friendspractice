@@ -1,0 +1,29 @@
+<div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Friendspractice</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">            
+            
+             <% if user_signed_in? %>
+                   <li  style="float:right"; class="dropdown">
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle">Profile <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="">Profile</a></li>
+                    <li><%= link_to "Edit" , edit_profile_path(current_user.id) %></li>                    
+                </ul>
+            </li>
+                <li style="float:right;"> <%= link_to "Logout" , destroy_user_session_path ,:method => "delete" %> </li>
+                 <li style="float:right;"> <%= link_to "Gallery" , albums_path %></li>
+             <% else %>
+                <li style="float:right;"> <%= link_to "SignIn" , new_user_session_path %></li>
+                <li style="float:right;"> <%= link_to "SignUp" , new_user_registration_path %> </li>
+             <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>

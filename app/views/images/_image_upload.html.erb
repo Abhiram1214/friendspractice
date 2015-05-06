@@ -1,0 +1,6 @@
+
+<%= form_for @pics , :html=> {:multipart=>true} do |f| %>
+   <%= f.file_field :avatar, {:class=>"form-control"} %>
+   <%= f.submit %>
+   
+<%end%>

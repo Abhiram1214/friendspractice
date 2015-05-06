@@ -1,0 +1,21 @@
+<style>
+  .disp_post{
+    border: 1px dashed red;
+    width: 900px;
+    margin-left: 150px;
+  }
+</style>
+
+
+<div class="disp_post">
+
+<% unless @posts.nil? %>
+<% @posts.each do |posts| %>
+  <div><%= posts.post %></div>
+  
+  <div>
+  <%= image_tag posts.image.avatar(:medium) %> 
+  </div>
+<%end%>
+<% end %>
+</div>

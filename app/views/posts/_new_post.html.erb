@@ -1,0 +1,20 @@
+<style>
+  #post_post{
+    width: 250px;
+    height:80px;
+  }
+  
+  .new_post{
+    margin-left: 50px;
+    margin-top: 30px;
+  }
+</style>
+
+<%= form_for @new_post, :html => { :multipart => true }  do |f| %>
+  <%= f.text_area :post,:class=>'form-control' %><br>
+  <%= f.hidden_field :user_id, :value=>current_user.id %> 
+  <%= f.fields_for :image do|pics| %>
+    <%= pics.file_field :avatar %><br>
+  <%= f.submit %><br>
+<%end%>
+<%end%>
