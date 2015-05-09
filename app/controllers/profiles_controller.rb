@@ -5,4 +5,8 @@ class ProfilesController < ApplicationController
     end  
         
   end
+  
+  def user_list
+    @user_all = User.all
+  end
 end

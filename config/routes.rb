@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :pictures
 
   resources :albums
+  
+  
 
   devise_for :users
   root "profiles#home"
@@ -11,8 +13,12 @@ Rails.application.routes.draw do
   get 'image_new', to: 'images#new'
   get 'images/view_images', :to=>'images#view_images'
   get 'profiles/home', :to=>'profiles#home'
+  get 'profiles/user_list', :to=>'profiles#user_list'
+  get 'friendships/notifications', :to=>'friendships#notifications'
+  get 'friendships/accept_friendship', :to=>'friendships#accept_friendship'
+  get 'friendships/request_friendship', :to=>'friendships#request_friendship'
   
- 
+  resources :friendships
   resources :profiles
   resources :images
   resources :posts

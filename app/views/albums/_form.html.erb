@@ -1,3 +1,4 @@
+<div class="col-md-5">
 <%= form_for(@album) do |f| %>
   <% if @album.errors.any? %>
     <div id="error_explanation">
@@ -13,10 +14,11 @@
 
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
-    <%= hidden_field_tag :user_id, current_user.id %>
+    <%= f.text_field :title, :class=>"form-control",:style=>"width: 205px" %>
+    <%= hidden_field_tag :us1er_id, current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+</div>

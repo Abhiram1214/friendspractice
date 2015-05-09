@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
   belongs_to :pictures
   
   
-  has_attached_file :avatar, :styles=>{:medium=>"300*300>", :thumb=>"100*100>", :gallery=>"700*700>"}
+  has_attached_file :avatar, :styles=>{:medium=>"300*300>", :thumb=>"100*100>", :gallery=>"300*900>"}
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   
 end

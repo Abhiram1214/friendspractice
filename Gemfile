@@ -10,6 +10,8 @@ gem 'sass-rails', '~> 5.0'
 
 gem 'devise'
 
+gem 'rambling-slider-rails'
+
 gem 'paperclip'
 
 gem "twitter-bootstrap-rails"

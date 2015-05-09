@@ -11,11 +11,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504171816) do
+ActiveRecord::Schema.define(version: 20150509063533) do
 
   create_table "albums", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.string   "title",      limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "friendships", force: :cascade do |t|
+    t.integer  "from_id",              limit: 4
+    t.integer  "to_id",                limit: 4
+    t.string   "pending_request",      limit: 255
+    t.string   "accepted",             limit: 255
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "pending_to",           limit: 255
+    t.string   "pending_request_from", limit: 255
+    t.string   "pending_request_to",   limit: 255
+    t.integer  "user_id",              limit: 4
+  end
+
+  create_table "frienships", force: :cascade do |t|
+    t.integer  "from_id",    limit: 4
+    t.integer  "to_id",      limit: 4
+    t.string   "accepted",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

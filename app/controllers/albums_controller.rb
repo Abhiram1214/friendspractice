@@ -13,6 +13,7 @@ class AlbumsController < ApplicationController
   # GET /albums/1
   # GET /albums/1.json
   def show
+    @album = params[:id]
     @albums_pictures = Album.where(:id=>params[:id])
     @album_pics = Picture.where(:album_id=> @albums_pictures)
     @all_album_pics = Image.where(:picture_id=>@album_pics)
@@ -44,7 +45,7 @@ class AlbumsController < ApplicationController
 
     respond_to do |format|
       if @album.save
-        format.html { redirect_to @album, notice: 'Album was successfully created.' }
+        format.html { redirect_to albums_path, notice: 'Album was successfully created.' }
         format.json { render :show, status: :created, location: @album }
       else
         format.html { render :new }

@@ -1,0 +1,7 @@
+
+<%= @friend.inspect %>
+<% @friend.each do |friend|%>
+<%= friend.pending_request_from %> <%= link_to "Accept Request", friendships_accept_friendship_path(:from_id=>friend.id) %> <br> 
+<%end%>
+
+
