@@ -11,22 +11,28 @@ class FriendshipsController < ApplicationController
     
     @req = User.where(current_user.id)
     @friend = Friendship.where(:pending_request_to=>@req)
-    @to = User.where(:id=>@friend)
+    
     
     puts "**************"
-    puts @to_id
+    puts @friend
     puts "**************"
     
     
   end
   
-  def accept_friendship
+  def accept_friendship   
+    
+    
+    @from_id = params[:to_id]
+    @to_id = params[:from_id]
+    
+    @friend_accept = Friendship.where(:pending_request_from=>@from_id, :pending_request_to=>@to_id).first
+    @friend_accept.update_attributes(accepted: true, :from_id=>@from_id, :to_id=>@to_id)
+    
+    
     puts "#############"
-    puts params
+    puts @from_id
+    puts @to_id
     puts "#############"
-    
-    @accept = Friendship.new
-    
-    
   end
 end
