@@ -17,7 +17,10 @@ Rails.application.routes.draw do
   get 'friendships/notifications', :to=>'friendships#notifications'
   get 'friendships/accept_friendship', :to=>'friendships#accept_friendship'
   get 'friendships/request_friendship', :to=>'friendships#request_friendship'
+  delete 'friendships/destroy_friendship', :to=>'friendships#destroy_friendship'
   
+
+  resources :comments  
   resources :friendships
   resources :profiles
   resources :images

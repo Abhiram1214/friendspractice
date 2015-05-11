@@ -1,0 +1,34 @@
+ <script type="text/javascript">
+            // When the document is ready
+            $(document).ready(function () {
+                
+                $('#example1').datepicker({
+                    format: "dd/mm/yyyy"
+                });  
+            
+            });
+ </script>
+
+<%= form_for @profile do |f| %>
+<fieldset>
+    <%# f.hidden_field(:user_id) %>
+  
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name, :class=> 'form-control'%><br>
+
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name, :class=> 'form-control' %><br>  
+  
+  <%= f.label :about_me %>
+  <%= f.text_area :about_me,:placeholder => "Few things about yourself", :class=> 'form-control' %><br>
+
+  <%= f.label :DOB %>
+  <%= f.text_field :dob , :id => "example1"%><br /><br />
+ 
+  
+  <%= f.submit :class=>'btn btn-sm btn-success'  %>
+</fieldset>
+<% end %>
+
+
+

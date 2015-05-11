@@ -1,0 +1,7 @@
+
+<%= form_for @comment_new , url: {:action => "create"} do |f| %>
+
+    <%= f.text_area :comment, {class:"form-control"}%> <br>
+     <%= f.hidden_field :post_id, :values => @comment_new %> <br>
+    <%= f.submit%>
+<% end %>

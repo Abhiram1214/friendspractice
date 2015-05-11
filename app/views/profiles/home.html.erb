@@ -1,21 +1,28 @@
-<style>
-  .disp_post{
-    border: 1px dashed red;
-    width: 900px;
-    margin-left: 150px;
-  }
-</style>
+<script>
+    $(document).ready(function(){
+        
+    });
+</script>
 
-
-<div class="disp_post">
-
-<% unless @posts.nil? %>
-<% @posts.each do |posts| %>
-  <div><%= posts.post %></div>
+<% unless @posts.nil? %>                        
+<% @posts.each do |p| %>
   
   <div>
-  <%= image_tag posts.image.avatar(:medium) %> 
-  </div>
-<%end%>
-<% end %>
+  <%= current_user.email %><br><br><br>
+  
+  <%= p.post %><br><br>
 </div>
+<div>
+  
+</div><br>
+
+
+  
+  <%= link_to "comment", new_comment_path(:post_id => p.id ) %>
+<%end%>
+<%end%>
+
+<%= link_to "new post", new_post_path %>
+
+
+

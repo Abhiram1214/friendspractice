@@ -1,20 +1,20 @@
 <style>
-  #post_post{
-    width: 250px;
-    height:80px;
-  }
-  
-  .new_post{
-    margin-left: 50px;
-    margin-top: 30px;
+  .form-control {
+    width: 50%;
   }
 </style>
+<%= form_for @posts , url: {:action => "create"},:html => { :multipart => true } do|f| %>
 
-<%= form_for @new_post, :html => { :multipart => true }  do |f| %>
-  <%= f.text_area :post,:class=>'form-control' %><br>
-  <%= f.hidden_field :user_id, :value=>current_user.id %> 
-  <%= f.fields_for :image do|pics| %>
-    <%= pics.file_field :avatar %><br>
-  <%= f.submit %><br>
-<%end%>
-<%end%>
+<div class="form-group">
+    Post<br>
+    <%= f.text_field :post, {class:"form-control"}%> <br>
+
+    <%= f.fields_for :image do |a| %>
+    	<%= a.file_field :avatar %>
+    <% end %>
+
+
+    <%= f.submit%>
+</div>
+
+<% end %>

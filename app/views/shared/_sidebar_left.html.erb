@@ -2,6 +2,9 @@
   <div class="row">
     <div id="navigation">
       <h3>Navigation</h3><br><br>
+      <div id="posts">
+        <%= link_to "Posts", profiles_home_path %>
+      </div><br><br>
       <div id="gallery">
         <%= link_to "Gallery", albums_path %>
       </div><br><br>
@@ -12,7 +15,7 @@
         <%= link_to "Users", profiles_user_list_path %>
       </div>   <br><br>
       <div id="friends">
-        <label>Friends</label>
+        <%= link_to "Friends", friendships_path %>
       </div><br><br>
       <div id="friends">
         <%= link_to "Notifications", friendships_notifications_path %>

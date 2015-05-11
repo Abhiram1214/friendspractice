@@ -1,7 +1,12 @@
 
 
-<% @friend.each do |friend|%>
-<%= friend.pending_request_from %> <%= link_to "Accept Request", friendships_accept_friendship_path(:to_id=>friend.pending_request_from,:from_id=>friend.pending_request_to) %> <br> 
+<% @req.each do |email| %>
+       
+   <% @friend.each do |friend|%>
+
+    <%= friend.pending_request_from %> <%= link_to "Accept Request", friendships_accept_friendship_path(:to_id=>friend.pending_request_from,:from_id=>friend.pending_request_to) %> <br> 
+  
+ <%end%>
 <%end%>
 
 

@@ -6,18 +6,17 @@ class FriendshipsController < ApplicationController
     @request = Friendship.create(pending_request_from: @from_id, pending_request_to: @to_id,user_id: current_user.id, accepted: false )
   end
   
-  def notifications
-       
+  def notifications       
     
-    @req = User.where(current_user.id)
+    @req = User.where(:id=>current_user.id)
     @friend = Friendship.where(:pending_request_to=>@req)
     
     
-    puts "**************"
-    puts @friend
-    puts "**************"
     
-    
+    puts "**************"
+    puts @req.inspect
+    puts "**************"
+        
   end
   
   def accept_friendship   
@@ -33,6 +32,25 @@ class FriendshipsController < ApplicationController
     puts "#############"
     puts @from_id
     puts @to_id
+    puts "#############"
+  end
+  
+  def index
+    @friends_all = Friendship.all
+  end
+  
+  def destroy
+     
+     
+     
+      @from_id = params[:from_id]
+      @to_id = params[:to_id]
+     
+     Friendship.find(params[:id]).destroy
+     
+     
+    puts "#############"
+    puts params
     puts "#############"
   end
 end

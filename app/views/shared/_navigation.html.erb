@@ -17,8 +17,9 @@
                     <li><%= link_to "Edit" , edit_profile_path(current_user.id) %></li>                    
                 </ul>
             </li>
+                
                 <li style="float:right;"> <%= link_to "Logout" , destroy_user_session_path ,:method => "delete" %> </li>
-                                
+                <li style="float:right;"> <%= current_user.email %> </li>                   
              <% else %>
                 <li style="float:right;"> <%= link_to "SignIn" , new_user_session_path %></li>
                 <li style="float:right;"> <%= link_to "SignUp" , new_user_registration_path %> </li>
