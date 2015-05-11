@@ -1,7 +1,8 @@
 <div class="user-list">
 <% @user_all.each do |users| %>
-   <% unless users.id == current_user.id %>
-       <%= users.email %> <%= link_to "Add Friend", friendships_request_friendship_path(:from_id=>current_user.id,:to_id=>users.id) %><br><br>		
-	<% end %> 
+
+<%= users.email %> <%= link_to_if users.friendships.accepted?, "Add Friend", friendships_request_friendship_path(:from_id=>current_user.id,:to_id=>users.id) %><br><br>		
+
+
 <%end%>
 </div>

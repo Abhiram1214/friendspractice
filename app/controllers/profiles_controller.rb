@@ -2,7 +2,11 @@ class ProfilesController < ApplicationController
   def home
     if current_user
       @friends = current_user.friendships
+      
+      puts "********friends***************"
+      puts @friends.inspect
       @posts = current_user.posts
+      
     end  
         
         puts "$$$$$$$$"

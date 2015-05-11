@@ -16,7 +16,7 @@ class FriendshipsController < ApplicationController
     puts "**************"
     puts @req.inspect
     puts "**************"
-        
+    
   end
   
   def accept_friendship   

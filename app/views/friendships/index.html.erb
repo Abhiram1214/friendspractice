@@ -14,9 +14,9 @@
     <% @friends_all.each do |friendship| %>
       <tr>
         <% if(friendship.from_id == current_user.id) %>
-          <td><%= friendship.to_id %></td>
+          <td><%= User.find(friendship.to_id).email %></td>
         <%else%>  
-           <td><%= friendship.from_id %></td>
+           <td><%= User.find(friendship.from_id).email %></td>
         <%end%>   
         
         <td><%= link_to 'Destroy', friendship, :method=> :delete %></td>
