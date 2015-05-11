@@ -36,7 +36,7 @@ class FriendshipsController < ApplicationController
   end
   
   def index
-    @friends_all = Friendship.all
+    @friends_all = Friendship.all    
   end
   
   def destroy

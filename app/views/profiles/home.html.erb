@@ -3,26 +3,24 @@
         
     });
 </script>
-
+<%= link_to "new post", new_post_path %><br><br>
 <% unless @posts.nil? %>                        
 <% @posts.each do |p| %>
   
   <div>
   <%= current_user.email %><br><br><br>
   
-  <%= p.post %><br><br>
+ <strong>post</strong> <%= p.post %><br><br>
 </div>
 <div>
-  
+  <%= image_tag p.image.avatar,:size => "100x100" %><br><br>
 </div><br>
 
-
   
-  <%= link_to "comment", new_comment_path(:post_id => p.id ) %>
 <%end%>
 <%end%>
 
-<%= link_to "new post", new_post_path %>
+
 
 
 
